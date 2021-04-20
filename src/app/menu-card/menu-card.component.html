@@ -1,0 +1,22 @@
+<div class="menu-container">
+    <div *ngFor="let item of data" class="menu-card">
+        <div class="menu-card__image" >
+            <img src={{item.image}} alt={{item.name}}>
+        </div>
+        <div class="menu-card__body">
+            <div class="body__name">
+                {{item.name}}
+            </div>
+                <div class="body__status">
+                    <span *ngIf="item.delivery; else noDelivery"  class="status__delivery checked">Livraison <i class="far fa-check-circle"></i></span>
+                    <ng-template #noDelivery>      
+                        <span class="status__delivery unchecked">Livraison <i class="far fa-times-circle"></i></span>
+                    </ng-template>
+                    <span *ngIf="item.takeaway; else noTakeaway" class="status__take-away checked">Emporter <i class="far fa-check-circle"></i></span>
+                    <ng-template #noTakeaway>      
+                        <span class="status__take-away unchecked">Emporter <i class="far fa-times-circle"></i></span>
+                    </ng-template>
+                </div>
+        </div>
+    </div>
+</div>
